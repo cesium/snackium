@@ -7,7 +7,7 @@ defmodule Snackium.Store.Product do
   schema "products" do
     field :description, :string
     field :name, :string
-    field :price, :float
+    field :price, :integer
     field :stock, :integer
     field :type, Ecto.Enum, values: @types
 
