@@ -3,10 +3,12 @@ defmodule Snackium.Accounts.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :email, :string
-    field :password, :string, virtual: true, redact: true
-    field :hashed_password, :string, redact: true
-    field :confirmed_at, :naive_datetime
+    field(:name, :string)
+    field(:debt, :integer, default: 0)
+    field(:email, :string)
+    field(:password, :string, virtual: true, redact: true)
+    field(:hashed_password, :string, redact: true)
+    field(:confirmed_at, :naive_datetime)
 
     timestamps()
   end
@@ -30,9 +32,15 @@ defmodule Snackium.Accounts.User do
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email, :password])
+    |> cast(attrs, [:name, :email, :password])
+    |> validate_name()
     |> validate_email()
     |> validate_password(opts)
+  end
+
+  defp validate_name(changeset) do
+    changeset
+    |> validate_required([:name])
   end
 
   defp validate_email(changeset) do
