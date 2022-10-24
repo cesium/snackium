@@ -4,8 +4,20 @@ defmodule SnackiumWeb.ProductLiveTest do
   import Phoenix.LiveViewTest
   import Snackium.StoreFixtures
 
-  @create_attrs %{description: "some description", name: "some name", price: 120.5, stock: 42, type: "some type"}
-  @update_attrs %{description: "some updated description", name: "some updated name", price: 456.7, stock: 43, type: "some updated type"}
+  @create_attrs %{
+    description: "some description",
+    name: "some name",
+    price: 120.5,
+    stock: 42,
+    type: "some type"
+  }
+  @update_attrs %{
+    description: "some updated description",
+    name: "some updated name",
+    price: 456.7,
+    stock: 43,
+    type: "some updated type"
+  }
   @invalid_attrs %{description: nil, name: nil, price: nil, stock: nil, type: nil}
 
   defp create_product(_) do

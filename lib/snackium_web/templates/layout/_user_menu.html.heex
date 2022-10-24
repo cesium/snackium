@@ -7,4 +7,5 @@
   <li><%= link "Register", to: Routes.user_registration_path(@conn, :new) %></li>
   <li><%= link "Log in", to: Routes.user_session_path(@conn, :new) %></li>
 <% end %>
+  <li><%= live_redirect "Products", to: Routes.product_index_path(@conn, :index) %></li>
 </ul>

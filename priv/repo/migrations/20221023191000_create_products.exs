@@ -5,7 +5,7 @@ defmodule Snackium.Repo.Migrations.CreateProducts do
     create table(:products) do
       add :name, :string
       add :description, :text
-      add :price, :float
+      add :price, :integer
       add :stock, :integer
       add :type, :string
 
